@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
 namespace Grades
 {
@@ -6,6 +7,11 @@ namespace Grades
     {
         static void Main(string[] args)
         {
+
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+            synth.Speak("hello fattaneh how are you");
+
             GradeBook book = new GradeBook();
             book.AddGrade(45);
             book.AddGrade(87.9f);
