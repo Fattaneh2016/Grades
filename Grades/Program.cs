@@ -1,4 +1,6 @@
-﻿namespace Grades
+﻿using System;
+
+namespace Grades
 {
     class Program
     {
@@ -7,8 +9,14 @@
             GradeBook book = new GradeBook();
             book.AddGrade(45);
             book.AddGrade(87.9f);
-            book.AddGrade(6.8f);
-            book.AddGrade(9.8f);
+            book.AddGrade(40);
+
+            GradeStatistics stats = book.ComputeStatistics();
+
+            Console.WriteLine(stats.AverageGrade);
+            Console.WriteLine(stats.Lowestgrade);
+            Console.WriteLine(stats.HighestGrade);
+            Console.ReadLine();
         }
     }
 }
