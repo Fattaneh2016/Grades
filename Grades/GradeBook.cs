@@ -11,6 +11,7 @@ namespace Grades
             grades = new List<float>();
         }
 
+        public string Name { get; set; }
         public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
