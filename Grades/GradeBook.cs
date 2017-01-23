@@ -11,7 +11,7 @@ namespace Grades
             grades = new List<float>();
         }
 
-        public string Name { get; set; }
+
         public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
@@ -33,6 +33,19 @@ namespace Grades
             grades.Add(grade);
         }
 
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _name = value;
+                }
+            }
+        }
+
+        private string _name;
 
         private List<float> grades;
     }
