@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Speech.Synthesis;
 
 namespace Grades
@@ -18,20 +19,75 @@ namespace Grades
             book.NameChanged += OnNameChanged;
 
 
-            book.Name = "fattaneh";
+            //book.Name = "fattaneh";
 
-            book.AddGrade(45);
-            book.AddGrade(87.9f);
-            book.AddGrade(40);
-            book.WriteGrades(Console.Out);
+            GetBookName(book);
+            AddGrades(book);
 
+            //if a class has dispose method we can use using to .net take care of dispose the object so we don't need to close the file the dot net do it for us.
+
+            SaveGrades(book);
+
+
+
+
+            //book.WriteGrades(Console.Out);
+
+            WriteResult(book);
+
+        }
+
+        private static void WriteResult(GradeBook book)
+        {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Lowest", (int)stats.Lowestgrade);
             WriteResult("highest", stats.HighestGrade);
             WriteResult(stats.Description, stats.LetterGrade);
             Console.ReadLine();
+        }
 
+        private static void SaveGrades(GradeBook book)
+        {
+            using (StreamWriter outputfile = File.CreateText("grades.text"))
+            {
+                book.WriteGrades(outputfile);
+                // outputfile.Close();
+            }
+        }
+
+        private static void AddGrades(GradeBook book)
+        {
+            book.AddGrade(45);
+            book.AddGrade(87.9f);
+            book.AddGrade(40);
+        }
+
+        private static void GetBookName(GradeBook book)
+        {
+            try
+            {
+                Console.WriteLine("Please enter a name");
+                book.Name = Console.ReadLine();
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+            finally
+            {
+
+            }
         }
 
         static void OnNameChanged(object sender, NameChangedEventArgs args)
