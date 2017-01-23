@@ -28,6 +28,7 @@ namespace Grades
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Lowest", (int)stats.Lowestgrade);
             WriteResult("highest", stats.HighestGrade);
+            WriteResult("grade", stats.LetterGrade);
             Console.ReadLine();
 
         }
@@ -43,11 +44,14 @@ namespace Grades
 
         }
 
+        static void WriteResult(string description, string result)
+        {
+            Console.WriteLine($"{description}: {result}", description, result);
+        }
         static void WriteResult(string description, float result)
         {
             Console.WriteLine($"{description}: {result:F2}", description, result);
         }
-
     }
 
 }
