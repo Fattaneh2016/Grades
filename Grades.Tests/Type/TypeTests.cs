@@ -7,6 +7,20 @@ namespace Grades.Tests.Type
     [TestClass]
     public class TypeTests
     {
+        [TestMethod]
+
+        public void UsingArray()
+        {
+            float[] grades;
+            grades = new float[3];
+            AddGrades(grades);
+            Assert.AreEqual(89.1f, grades[1]);
+        }
+
+        private void AddGrades(float[] grades)
+        {
+            grades[1] = 89.1f;
+        }
 
         [TestMethod]
 

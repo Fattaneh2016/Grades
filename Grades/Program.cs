@@ -10,7 +10,7 @@ namespace Grades
 
             SpeechSynthesizer synth = new SpeechSynthesizer();
 
-            synth.Speak("hello fattaneh how are you");
+            synth.Speak("hello Farah how are you");
 
             GradeBook book = new GradeBook();
             book.AddGrade(45);
@@ -18,11 +18,24 @@ namespace Grades
             book.AddGrade(40);
 
             GradeStatistics stats = book.ComputeStatistics();
-
-            Console.WriteLine(stats.AverageGrade);
-            Console.WriteLine(stats.Lowestgrade);
-            Console.WriteLine(stats.HighestGrade);
+            WriteResult("Average", stats.AverageGrade);
+            WriteResult("Lowest", (int)stats.Lowestgrade);
+            WriteResult("highest", stats.HighestGrade);
             Console.ReadLine();
+
         }
+        static void WriteResult(string description, int result)
+        {
+            Console.WriteLine("{0}: {1}", description, result);
+
+        }
+
+        static void WriteResult(string description, float result)
+        {
+            Console.WriteLine($"{description}: {result:F2}", description, result);
+        }
+
     }
+
 }
+
