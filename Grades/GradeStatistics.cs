@@ -37,6 +37,34 @@
             }
         }
 
+        public string Description
+        {
+
+            get
+            {
+                string result;
+                switch (LetterGrade)
+                {
+                    case "A":
+                        result = "Exellent";
+                        break;
+                    case "B":
+                        result = "Good";
+                        break;
+                    case "C":
+                        result = "Average";
+                        break;
+                    case "D":
+                        result = "below Average";
+                        break;
+                    default:
+                        result = "Failing";
+                        break;
+                }
+                return result;
+            }
+
+        }
         public float AverageGrade;
         public float Lowestgrade;
         public float HighestGrade;
