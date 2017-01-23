@@ -13,6 +13,13 @@ namespace Grades
             synth.Speak("hello Farah how are you");
 
             GradeBook book = new GradeBook();
+
+            //book.NameChanged += new NameChangedDelegate(OnNameChanged);
+            book.NameChanged += OnNameChanged;
+
+
+            book.Name = "fattaneh";
+
             book.AddGrade(45);
             book.AddGrade(87.9f);
             book.AddGrade(40);
@@ -24,6 +31,12 @@ namespace Grades
             Console.ReadLine();
 
         }
+
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        {
+            Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
+        }
+
         static void WriteResult(string description, int result)
         {
             Console.WriteLine("{0}: {1}", description, result);
