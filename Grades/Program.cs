@@ -13,7 +13,7 @@ namespace Grades
 
             synth.Speak("hello Fattaneh how are you");
 
-            GradeTracker book = CreateGradeBook();
+            IGradeTracker book = CreateGradeBook();
 
             //book.NameChanged += new NameChangedDelegate(OnNameChanged);
             book.NameChanged += OnNameChanged;
@@ -42,7 +42,7 @@ namespace Grades
             return new ThrowAwayGradeBook();
         }
 
-        private static void WriteResult(GradeTracker book)
+        private static void WriteResult(IGradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
@@ -52,7 +52,7 @@ namespace Grades
             Console.ReadLine();
         }
 
-        private static void SaveGrades(GradeTracker book)
+        private static void SaveGrades(IGradeTracker book)
         {
             using (StreamWriter outputfile = File.CreateText("grades.text"))
             {
@@ -61,14 +61,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeTracker book)
+        private static void AddGrades(IGradeTracker book)
         {
             book.AddGrade(45);
             book.AddGrade(87.9f);
             book.AddGrade(40);
         }
 
-        private static void GetBookName(GradeTracker book)
+        private static void GetBookName(IGradeTracker book)
         {
             try
             {
