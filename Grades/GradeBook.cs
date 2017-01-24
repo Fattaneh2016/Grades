@@ -59,7 +59,7 @@ namespace Grades
 
         private string _name;
 
-        private List<float> grades;
+        protected List<float> grades;
 
         public void WriteGrades(TextWriter destination)
         {
