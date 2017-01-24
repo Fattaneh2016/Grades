@@ -13,7 +13,7 @@ namespace Grades
 
             synth.Speak("hello Farah how are you");
 
-            GradeBook book = new GradeBook();
+            GradeBook book = CreateGradeBook();
 
             //book.NameChanged += new NameChangedDelegate(OnNameChanged);
             book.NameChanged += OnNameChanged;
@@ -35,6 +35,11 @@ namespace Grades
 
             WriteResult(book);
 
+        }
+
+        private static ThrowAwayGradeBook CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
         }
 
         private static void WriteResult(GradeBook book)
