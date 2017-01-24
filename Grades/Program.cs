@@ -11,7 +11,7 @@ namespace Grades
 
             SpeechSynthesizer synth = new SpeechSynthesizer();
 
-            synth.Speak("hello Farah how are you");
+            synth.Speak("hello Fattaneh how are you");
 
             GradeBook book = CreateGradeBook();
 
