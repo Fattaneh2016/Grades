@@ -7,5 +7,6 @@ namespace Grades
         void AddGrade(float grade);
         GradeStatistics ComputeStatistics();
         void WriteGrades(TextWriter destination);
+        string Name { get; set; }
     }
 }

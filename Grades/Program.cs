@@ -16,7 +16,7 @@ namespace Grades
             IGradeTracker book = CreateGradeBook();
 
             //book.NameChanged += new NameChangedDelegate(OnNameChanged);
-            book.NameChanged += OnNameChanged;
+            //book.NameChanged += OnNameChanged;
 
 
             //book.Name = "fattaneh";
@@ -37,7 +37,7 @@ namespace Grades
 
         }
 
-        private static ThrowAwayGradeBook CreateGradeBook()
+        private static IGradeTracker CreateGradeBook()
         {
             return new ThrowAwayGradeBook();
         }
